@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Fikri Azmi Naufal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #1a1a1a; }
+        .project-card:hover img { transform: scale(1.04); }
+        .modal-scroll::-webkit-scrollbar { width: 6px; }
+        .modal-scroll::-webkit-scrollbar-track { background: #1f1f1f; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-gray-300 min-h-screen py-10 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+
+    <header class="w-full max-w-6xl mx-auto mb-10 flex justify-between items-center px-4">
+        <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition flex items-center gap-2">&larr; Back to Home</a>
+        <nav class="flex items-center space-x-6 text-sm font-medium text-gray-400">
+            <a href="resume.html" class="hover:text-white transition duration-200">View Resume</a>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto flex-grow px-4">
+        
+        <div class="border-b border-neutral-800 pb-6 mb-8">
+            <h1 class="text-white text-4xl font-bold tracking-tight mb-2">Projects Portfolio</h1>
+            <p class="text-gray-500 text-sm font-medium tracking-wide">Senior OSS Data Engineer & Full-Stack Developer</p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-10">
+            <button onclick="filterProjects('all', event)" class="tab-btn px-4 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-full border border-blue-600 transition duration-300">All Work</button>
+            <button onclick="filterProjects('data-warehouse', event)" class="tab-btn px-4 py-1.5 bg-neutral-800 text-gray-400 text-xs font-semibold rounded-full border border-neutral-700 hover:bg-neutral-700 hover:text-white transition duration-300">Data Architecture</button>
+            <button onclick="filterProjects('ai', event)" class="tab-btn px-4 py-1.5 bg-neutral-800 text-gray-400 text-xs font-semibold rounded-full border border-neutral-700 hover:bg-neutral-700 hover:text-white transition duration-300">AI & Automation</button>
+            <button onclick="filterProjects('dashboards', event)" class="tab-btn px-4 py-1.5 bg-neutral-800 text-gray-400 text-xs font-semibold rounded-full border border-neutral-700 hover:bg-neutral-700 hover:text-white transition duration-300">BI & Dashboards</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+            
+            <div onclick="openModal('modal-nikita-tools')" class="project-card bg-[#1e1e1e] border border-neutral-800/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg group transition duration-300 cursor-pointer" data-category="dashboards">
+                <div class="w-full h-44 overflow-hidden relative bg-neutral-900">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Web Tools Monitoring NIKITA" class="w-full h-full object-cover transition duration-500 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] to-transparent opacity-60"></div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">PHP</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">MySQL</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">Apache ECharts</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">Leaflet.js</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">ETL</span>
+                        </div>
+                        <h3 class="text-white text-base font-bold tracking-tight mb-2 leading-snug group-hover:text-blue-400 transition duration-200">Web Tools Monitoring NIKITA</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed text-justify mb-4">A comprehensive enterprise-grade telecommunication network monitoring system designed to simplify data visualization, enabling engineers to aggregate and analyze performance metrics efficiently.</p>
+                    </div>
+                    <div class="border-t border-neutral-800/60 pt-4 mt-2 flex justify-between items-center text-[11px] text-neutral-500 font-medium">
+                        <span class="capitalize flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>BI & dashboards</span>
+                        <span class="text-blue-500 font-semibold group-hover:underline flex items-center gap-1">Click to view details &rarr;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card bg-[#1e1e1e] border border-neutral-800/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg group transition duration-300" data-category="ai">
+                <div class="w-full h-44 overflow-hidden relative bg-neutral-900">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80" alt="Autonomous Network Analytics AI Agent" class="w-full h-full object-cover transition duration-500 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] to-transparent opacity-60"></div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">CrewAI</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">Python</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">LLM Integration</span>
+                        </div>
+                        <h3 class="text-white text-base font-bold tracking-tight mb-2 leading-snug group-hover:text-blue-400 transition duration-200">Autonomous Network Analytics AI Agent</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed text-justify mb-4">Pioneered autonomous workflows using CrewAI to automate complex network health checks, alarm correlations, and technical synthesis reporting for regional executive meetings.</p>
+                    </div>
+                    <div class="border-t border-neutral-800/60 pt-4 mt-2 flex justify-between items-center text-[11px] text-neutral-500 font-medium">
+                        <span class="capitalize flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>AI & automation</span>
+                        <span class="text-neutral-600">Enterprise Core</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card bg-[#1e1e1e] border border-neutral-800/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg group transition duration-300" data-category="data-warehouse">
+                <div class="w-full h-44 overflow-hidden relative bg-neutral-900">
+                    <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80" alt="ZTE & Huawei Multi-Vendor NMS Data Centralization" class="w-full h-full object-cover transition duration-500 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] to-transparent opacity-60"></div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">MySQL</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">ETL</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">ZTE UME</span>
+                            <span class="bg-neutral-900 text-blue-400 text-[10px] font-mono px-2.5 py-0.5 rounded border border-neutral-800">Huawei U2000</span>
+                        </div>
+                        <h3 class="text-white text-base font-bold tracking-tight mb-2 leading-snug group-hover:text-blue-400 transition duration-200">ZTE & Huawei Multi-Vendor NMS Data Centralization</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed text-justify mb-4">Centralized high-volume live data streams from legacy and modern NMS platforms into a unified analytical repository during major regional network swap phases.</p>
+                    </div>
+                    <div class="border-t border-neutral-800/60 pt-4 mt-2 flex justify-between items-center text-[11px] text-neutral-500 font-medium">
+                        <span class="capitalize flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>Data Architecture</span>
+                        <span class="text-neutral-600">Enterprise Core</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="modal-nikita-tools" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-[#161616] border border-neutral-800 w-full max-w-5xl h-[85vh] rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-neutral-800 flex justify-between items-center bg-neutral-900/50">
+                <div>
+                    <h2 class="text-white text-xl font-bold flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Web Tools Monitoring NIKITA
+                    </h2>
+                    <p class="text-xs text-neutral-500 mt-1">Platform Link: <a href="https://s80.nikitagenerator.com/login.php" target="_blank" class="text-blue-400 underline hover:text-blue-300">s80.nikitagenerator.com/login.php</a></p>
+                </div>
+                <button onclick="closeModal('modal-nikita-tools')" class="text-gray-400 hover:text-white bg-neutral-800 hover:bg-neutral-700 w-8 h-8 rounded-full flex items-center justify-center transition">&times;</button>
+            </div>
+
+            <div class="p-6 sm:p-8 overflow-y-auto flex-grow space-y-12 modal-scroll">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-1 bg-neutral-900/40 border border-neutral-800 p-5 rounded-xl">
+                        <h3 class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-3">Core Objective</h3>
+                        <p class="text-neutral-300 text-xs leading-relaxed text-justify">To simplify the data visualization process, thereby enabling engineers to analyze performance metrics efficiently and accelerate the execution of corrective actions for any KPI failures.</p>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl">
+                            <h4 class="text-white text-xs font-bold mb-2 flex items-center gap-1.5"><span class="text-blue-500">&bull;</span> KPI Monitoring</h4>
+                            <ul class="text-[11px] text-neutral-400 space-y-1">
+                                <li>- Daily Cell/Site/City Level</li>
+                                <li>- Hourly Cell/Site/City Level</li>
+                                <li>- PLMN Day & Hour Metrics</li>
+                                <li>- TAKQI System Track</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl">
+                            <h4 class="text-white text-xs font-bold mb-2 flex items-center gap-1.5"><span class="text-blue-500">&bull;</span> Raw Ingestion</h4>
+                            <ul class="text-[11px] text-neutral-400 space-y-1">
+                                <li>- Format CLO 4G BDBH</li>
+                                <li>- Format SSH 2G/4G</li>
+                                <li>- PAC 2G/4G Integration</li>
+                                <li>- Direct CSV Exporter</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl">
+                            <h4 class="text-white text-xs font-bold mb-2 flex items-center gap-1.5"><span class="text-blue-500">&bull;</span> Requested Analytics</h4>
+                            <ul class="text-[11px] text-neutral-400 space-y-1">
+                                <li>- Low/Mid/High Band Trend</li>
+                                <li>- Trend KPI Site Sector</li>
+                                <li>- SSH & MOCN Summaries</li>
+                                <li>- PAC Coverage Maps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div class="border-t border-neutral-800 pt-6">
+                        <div class="mb-4">
+                            <span class="text-blue-500 text-[10px] font-mono uppercase font-bold tracking-widest">Module 01</span>
+                            <h3 class="text-white text-lg font-bold">KPI Monitoring & TA Distribution</h3>
+                            <p class="text-neutral-400 text-xs mt-1 text-justify">Tracks daily and hourly busy hour metrics (PRB, RRC, throughput, active connected users, and accessibility) along with Timing Advance (TA) charts to visualize cell distance distributions.</p>
+                        </div>
+                        <div class="bg-neutral-900/60 border border-neutral-800 p-2 rounded-xl">
+                            <div class="w-full text-center py-2 bg-neutral-950 text-neutral-500 text-[10px] font-mono border-b border-neutral-800 flex items-center justify-between px-4 rounded-t-lg">
+                                <span>Filter: Daily_cell_level | Period: 09/01/2025 - 09/12/2025</span>
+                                <span class="text-blue-500">Live Analytics Panel</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 bg-neutral-950/40 rounded-b-lg">
+                                <div class="bg-neutral-900 p-3 rounded border border-neutral-800/50 text-center text-xs font-semibold text-neutral-400">📊 Chart Engine: Availability (%), Payload (GB), and RRC Users</div>
+                                <div class="bg-neutral-900 p-3 rounded border border-neutral-800/50 text-center text-xs font-semibold text-neutral-400">📊 Chart Engine: Timing Advance, VoLTE Traffic (Erl), and DL PRB (%)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-neutral-800 pt-6">
+                        <div class="mb-4">
+                            <span class="text-blue-500 text-[10px] font-mono uppercase font-bold tracking-widest">Module 02</span>
+                            <h3 class="text-white text-lg font-bold">Comparation, Stability & KQI Metrics</h3>
+                            <p class="text-neutral-400 text-xs mt-1 text-justify">Compares key quality indicators (E2E Latency, Packet Loss, Video Throughput, SWE) between two periods (Pre vs Post Date Ranges). Automatically highlights performance improvement or degradation across core operator parameters.</p>
+                        </div>
+                        <div class="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden text-xs font-mono">
+                            <div class="bg-neutral-900 p-3 border-b border-neutral-800 flex justify-between text-[11px]">
+                                <span class="text-white">Pre: 2025-08-13 to 2025-08-13 | Post: 2025-09-01 to 2025-09-01</span>
+                                <span class="text-red-400 font-bold">Degradation Alerts Generated</span>
+                            </div>
+                            <div class="p-4 space-y-2 text-neutral-400 text-[11px]">
+                                <p class="text-gray-500">// Automated Matrix Aggregation Summary</p>
+                                <p>&bull; E2E Latency: Pre 120.51 ms &rarr; Post 91.45 ms <span class="text-green-400">(+24.11% Optimized)</span></p>
+                                <p>&bull; Packet Loss: Pre 0.021% &rarr; Post 0.019% <span class="text-green-400">(+0.002% Stability)</span></p>
+                                <p>&bull; Video Streaming Throughput: Pre 5879.01 mbps &rarr; Post 6411.82 mbps <span class="text-red-400">(-16.29% Degradation Impact)</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-neutral-800 pt-6">
+                        <div class="mb-4">
+                            <span class="text-blue-500 text-[10px] font-mono uppercase font-bold tracking-widest">Module 03</span>
+                            <h3 class="text-white text-lg font-bold">End-to-End ETL Data Export System</h3>
+                            <p class="text-neutral-400 text-xs mt-1 text-justify">Allows operational engineers to export raw metrics into clean CSV structure by supplying dynamic form inputs (Formats include CLO 4G, SSH, PAC, KQI Day, SWE, and PLMN Day data options).</p>
+                        </div>
+                        <div class="bg-neutral-900/30 border border-neutral-800 p-5 rounded-xl space-y-3">
+                            <h4 class="text-white text-xs font-bold uppercase tracking-wider">Ingestion Parameter Selectors</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[11px] text-neutral-400 font-mono">
+                                <div class="bg-neutral-950 p-2.5 rounded border border-neutral-800">📁 Format Selector</div>
+                                <div class="bg-neutral-950 p-2.5 rounded border border-neutral-800">📅 Date Range</div>
+                                <div class="bg-neutral-950 p-2.5 rounded border border-neutral-800">📍 Cluster (HighWays, POI)</div>
+                                <div class="bg-neutral-950 p-2.5 rounded border border-neutral-800">🏷️ Tag Info (PRE / POST)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-neutral-800 pt-6">
+                        <div class="mb-4">
+                            <span class="text-blue-500 text-[10px] font-mono uppercase font-bold tracking-widest">Module 04</span>
+                            <h3 class="text-white text-lg font-bold">GIS Spatial Maps & Special Event Monitoring</h3>
+                            <p class="text-neutral-400 text-xs mt-1 text-justify">Renders geographic layouts via Leaflet/RSRP maps to track signal distribution limits, monitor critical infrastructure locations (POI), handle sector orientations, and track live tower cluster network swaps.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-neutral-800 bg-neutral-900/50 flex justify-end">
+                <button onclick="closeModal('modal-nikita-tools')" class="px-5 py-2 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-semibold rounded-lg transition">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-10 text-xs text-neutral-600">
+        &copy; 2026 Fikri Azmi Naufal. All rights reserved.
+    </footer>
+
+    <script type="text/javascript">
+        function filterProjects(category, event) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                tab.classList.add('bg-neutral-800', 'text-gray-400', 'border-neutral-700');
+            });
+
+            const activeTab = event.currentTarget;
+            activeTab.classList.remove('bg-neutral-800', 'text-gray-400', 'border-neutral-700');
+            activeTab.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
