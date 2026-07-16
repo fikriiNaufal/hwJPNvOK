@@ -1,98 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Fikri Azmi Naufal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #09090b; /* Zinc 950 - Deeper, more premium dark */
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar for premium feel */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #09090b; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
-
-        /* Subtle Entrance Animations */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Fikri Azmi Naufal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+        }
+    </style>
 </head>
-<body class="text-zinc-300 min-h-screen flex flex-col relative selection:bg-blue-500 selection:text-white">
+<body class="text-gray-300 min-h-screen flex flex-col justify-between selection:bg-blue-500 selection:text-white">
 
-    <div class="absolute top-[-20%] left-[-10%] w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-[-20%] right-[-10%] w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+        <div class="w-10 h-10 invisible"></div>
 
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center relative z-10 animate-fade-in-up">
-        <div class="text-xl font-bold text-white tracking-tighter">
-            FN<span class="text-blue-500">.</span>
-        </div>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
+            <a href="resume.html" class="hover:text-white transition duration-200">Resume</a>
+            <a href="portofolio.html" class="hover:text-white transition duration-200">Portfolio</a>
+            <a href="https://wa.me/6285236943825?text=Halo%20Fikri%2C%20saya%20melihat%20portofolio%20Anda%20di%20GitHub%20dan%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20project%20%2F%20job%20opportunity." target="_blank" class="hover:text-white transition duration-200">Contact</a>
+        </nav>
+    </header>
 
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
-            <a href="resume.html" class="hover:text-white hover:-translate-y-0.5 transition-all duration-300">Resume</a>
-            <a href="portofolio.html" class="hover:text-white hover:-translate-y-0.5 transition-all duration-300">Portfolio</a>
-            <a href="https://wa.me/6285236943825?text=Halo%20Fikri..." target="_blank" class="hover:text-white hover:-translate-y-0.5 transition-all duration-300">Contact</a>
-        </nav>
+    <main class="w-full max-w-5xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 flex-grow">
+        
+       <div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0">
+    <div class="absolute inset-0 rounded-full border-[12px] border-neutral-800 shadow-2xl"></div>
+    <img 
+        src="profile_fikri.png" 
+        alt="Fikri Azmi Naufal" 
+        class="w-full h-full rounded-full object-cover"
+        oncontextmenu="return false;"
+    >
+</div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-zinc-300 hover:text-white focus:outline-none p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </header>
+        <div class="max-w-xl text-center md:text-left">
+            <span class="text-gray-500 uppercase tracking-wider text-xs font-semibold block mb-2">
+                Senior OSS Data Engineer & Full-Stack Developer
+            </span>
+            <h1 class="text-white text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                Fikri Azmi Naufal
+            </h1>
+            
+            <p class="text-gray-400 leading-relaxed text-sm md:text-base font-light mb-8 text-justify">
+                Architecting robust data solutions, automated reporting, and enterprise data warehouses for major telecommunication networks. Expert in Full-Stack PHP, advanced SQL, and pioneering Autonomous AI Agents (CrewAI) to drive executive decision-making.
+            </p>
 
-    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-zinc-900/90 backdrop-blur-lg border-b border-zinc-800 z-50">
-        <nav class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-zinc-300">
-            <a href="resume.html" class="hover:text-white transition duration-200">Resume</a>
-            <a href="portofolio.html" class="hover:text-white transition duration-200">Portfolio</a>
-            <a href="https://wa.me/6285236943825?text=Halo%20Fikri..." target="_blank" class="hover:text-white transition duration-200">Contact</a>
-        </nav>
-    </div>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+               <a href="Fikri_Azmi_Naufal_CV_2026.pdf" download="Fikri_Azmi_Naufal_CV_2026.pdf" class="px-6 py-3 border border-blue-600 bg-transparent text-white text-sm font-medium rounded-full hover:bg-blue-600 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition duration-300">
+    Download CV
+</a>
+                <a href="https://wa.me/6285236943825?text=Halo%20Fikri%2C%20saya%20melihat%20portofolio%20Anda%20di%20GitHub%20dan%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20project%20%2F%20job%20opportunity." target="_blank" class="px-6 py-3 border border-neutral-600 bg-transparent text-white text-sm font-medium rounded-full hover:bg-neutral-800 hover:border-neutral-400 transition duration-300">
+                    Contact Me
+                </a>
+            </div>
+        </div>
 
-    <main class="w-full max-w-6xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 flex-grow relative z-10">
-        
-        <div class="relative w-56 h-56 md:w-80 md:h-80 flex-shrink-0 group animate-fade-in-up delay-100">
-            <div class="absolute inset-0 rounded-full border border-white/10 bg-white/5 backdrop-blur-3xl transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"></div>
-            <div class="absolute inset-0 rounded-full bg-blue-500/20 blur-2xl group-hover:bg-blue-500/30 transition-colors duration-700"></div>
-            
-            <img 
-                src="profile_fikri.png" 
-                alt="Fikri Azmi Naufal" 
-                class="relative w-full h-full rounded-full object-cover border-2 border-white/10 shadow-2xl filter brightness-95 group-hover:brightness-105 transition-all duration-700"
-                oncontextmenu="return false;"
-            >
-        </div>
-
-        <div class="max-w-xl text-center md:text-left flex flex-col items-center md:items-start">
-            
-            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 animate-fade-in-up delay-100">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                <span class="text-zinc-300 text-xs font-medium uppercase tracking-wider">
-                    Senior OSS Data Engineer & Full-Stack Developer
-                </span>
-            </div>
-
-            <h1 class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500 text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight animate-fade-in-up delay-200 leading-tight">
-                Fikri Azmi Naufal
-            </h1>
+    </main>
